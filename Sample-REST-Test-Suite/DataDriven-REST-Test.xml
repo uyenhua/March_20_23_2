@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testCase id="040f09d4-dbf2-4816-9383-1b0a6085e75a" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="DataDriven REST Test" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword="" zephyrTestName="" zephyrTestId="" xmlns:con="http://eviware.com/soapui/config">
+<con:testCase amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword="" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" id="040f09d4-dbf2-4816-9383-1b0a6085e75a" keepSession="false" name="DataDriven REST Test" searchProperties="true" timeout="0" wsrmAckTo="" wsrmEnabled="false" wsrmVersion="1.0" zephyrTestId="" zephyrTestName="" xmlns:con="http://eviware.com/soapui/config">
   <con:description>Datadriven test help test a scenario where the same or multiple APIs need to be tested with a large amount of data inputs, it can also be used to test a large dataset of expected results through assertions. These data inputs can be picked up from a Database, Excel spread sheet
 and many other data entities.
 
@@ -15,7 +15,7 @@ NOTE: Check the Test Case transaction log after the execution of the test to vie
     <con:setting id="040f09d4-dbf2-4816-9383-1b0a6085e75afileName">DataDriven-REST-Test</con:setting>
   </con:settings>
   <con:savedRecentRuns>1</con:savedRecentRuns>
-  <con:testStep type="VirtRunnerTestStep" name="Start Service" id="3e086f11-87bf-4f31-94e7-80f81995ddc8">
+  <con:testStep id="3e086f11-87bf-4f31-94e7-80f81995ddc8" name="Start Service" type="VirtRunnerTestStep">
     <con:settings/>
     <con:config>
       <url>localhost</url>
@@ -23,7 +23,7 @@ NOTE: Check the Test Case transaction log after the execution of the test to vie
       <action>run</action>
     </con:config>
   </con:testStep>
-  <con:testStep type="datasource" name="Data Source" id="f0c47a2d-6317-4aff-ae84-4c4f62b41c66">
+  <con:testStep id="f0c47a2d-6317-4aff-ae84-4c4f62b41c66" name="Data Source" type="datasource">
     <con:settings/>
     <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:dataSource type="Grid">
@@ -51,17 +51,17 @@ NOTE: Check the Test Case transaction log after the execution of the test to vie
       <con:stopDatasourceExhausted>false</con:stopDatasourceExhausted>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="Login" id="2b02bf6d-274e-41fc-81cb-293779e06f58">
+  <con:testStep id="2b02bf6d-274e-41fc-81cb-293779e06f58" name="Login" type="restrequest">
     <con:settings/>
-    <con:config service="Ecommerce" resourcePath="/login/" methodName="Login" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:restRequest name="Login" id="af9f46ad-d5ad-4c3c-bcde-e2f266c3dc2c" mediaType="application/json" postQueryString="false">
+    <con:config xsi:type="con:RestRequestStep" methodName="Login" resourcePath="/login/" service="Ecommerce" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest id="af9f46ad-d5ad-4c3c-bcde-e2f266c3dc2c" mediaType="application/json" name="Login" postQueryString="false">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Accept" value="application/json" xmlns="http://eviware.com/soapui/config"/></con:setting>
         </con:settings>
         <con:endpoint>http://localhost:8084</con:endpoint>
         <con:request>{"sample" : "1 "}</con:request>
         <con:originalUri>http://localhost/login</con:originalUri>
-        <con:assertion type="JsonPath Existence Match" id="92e9bc11-3656-4d2f-aab9-0814439ec6df" name="Check for existence of [sessionid]">
+        <con:assertion id="92e9bc11-3656-4d2f-aab9-0814439ec6df" name="Check for existence of [sessionid]" type="JsonPath Existence Match">
           <con:configuration>
             <path>$['sessionid']</path>
             <content>true</content>
@@ -116,17 +116,17 @@ NOTE: Check the Test Case transaction log after the execution of the test to vie
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="Logout" id="7024fe11-6ad4-42ea-9d1d-52437f250b9e">
+  <con:testStep id="7024fe11-6ad4-42ea-9d1d-52437f250b9e" name="Logout" type="restrequest">
     <con:settings/>
-    <con:config service="Ecommerce" resourcePath="/logout" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:restRequest name="Logout" id="05080aa5-8817-44ff-ad88-cf8aec040aef" mediaType="application/json">
+    <con:config xsi:type="con:RestRequestStep" methodName="Method 1" resourcePath="/logout" service="Ecommerce" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest id="05080aa5-8817-44ff-ad88-cf8aec040aef" mediaType="application/json" name="Logout">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Accept" value="application/json" xmlns="http://eviware.com/soapui/config"/></con:setting>
         </con:settings>
         <con:endpoint>http://localhost:8084</con:endpoint>
         <con:request/>
         <con:originalUri>http://localhost/logout</con:originalUri>
-        <con:assertion type="Valid HTTP Status Codes" id="669153b5-171f-40f6-8f3c-9fbb86de9c45" name="Valid HTTP Status Codes">
+        <con:assertion id="669153b5-171f-40f6-8f3c-9fbb86de9c45" name="Valid HTTP Status Codes" type="Valid HTTP Status Codes">
           <con:settings/>
           <con:configuration>
             <codes>200</codes>
@@ -138,7 +138,7 @@ NOTE: Check the Test Case transaction log after the execution of the test to vie
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
-          <entry key="sessionid" value="${Login#Response#$['sessionid']}" xmlns="http://eviware.com/soapui/config"/>
+          <con:entry key="sessionid" value="${Login#Response#$['sessionid']}"/>
         </con:parameters>
         <con:parameterOrder>
           <con:entry>sessionid</con:entry>
@@ -175,7 +175,7 @@ NOTE: Check the Test Case transaction log after the execution of the test to vie
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="datasourceloop" name="Data Source Loop" id="70cd03a4-55c6-4c18-be93-9b9656bd9ba9">
+  <con:testStep id="70cd03a4-55c6-4c18-be93-9b9656bd9ba9" name="Data Source Loop" type="datasourceloop">
     <con:settings/>
     <con:config>
       <dataSourceStep>Data Source</dataSourceStep>
@@ -183,7 +183,7 @@ NOTE: Check the Test Case transaction log after the execution of the test to vie
       <discardResults>false</discardResults>
     </con:config>
   </con:testStep>
-  <con:testStep type="VirtRunnerTestStep" name="Stop Service" id="e00b508f-cc8f-4c5d-a30f-98d656cd87a3">
+  <con:testStep id="e00b508f-cc8f-4c5d-a30f-98d656cd87a3" name="Stop Service" type="VirtRunnerTestStep">
     <con:settings/>
     <con:config>
       <url>localhost</url>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:resource name="buy" path="/buy" id="75364f33-cf4b-4a2b-b339-32f81cd19471" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+<con:resource id="75364f33-cf4b-4a2b-b339-32f81cd19471" name="buy" path="/buy" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="d2e78192-32e5-44ea-b917-4dccd7c6470bfileName">buy</con:setting>
     <con:setting id="75364f33-cf4b-4a2b-b339-32f81cd19471fileName">buy</con:setting>
@@ -18,7 +18,7 @@
       <con:default/>
     </con:parameter>
   </con:parameters>
-  <con:method name="Method 1" id="912196f2-5bd1-4263-af0e-9382ebdf8587" method="GET">
+  <con:method id="912196f2-5bd1-4263-af0e-9382ebdf8587" method="GET" name="Method 1">
     <con:settings/>
     <con:parameters/>
     <con:representation type="REQUEST">
@@ -26,7 +26,7 @@
       <con:params/>
     </con:representation>
     <con:representation type="FAULT">
-      <con:mediaType xsi:nil="true"/>
+      <con:mediaType/>
       <con:status>405</con:status>
       <con:params/>
       <con:element>data</con:element>
@@ -35,9 +35,9 @@
       <con:mediaType>application/json</con:mediaType>
       <con:status>200</con:status>
       <con:params/>
-      <con:element xmlns:buy="http://localhost/buy">buy:Response</con:element>
+      <con:element>buy:Response</con:element>
     </con:representation>
-    <con:request name="Request 1" id="b797c37e-2328-43f9-b0d6-f1d993c8419f" mediaType="application/json" postQueryString="false">
+    <con:request id="b797c37e-2328-43f9-b0d6-f1d993c8419f" mediaType="application/json" name="Request 1" postQueryString="false">
       <con:settings>
         <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
       </con:settings>
@@ -51,7 +51,7 @@
       <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
       <con:jmsPropertyConfig/>
       <con:parameters>
-        <entry key="buystring" value="Item 1" xmlns="http://eviware.com/soapui/config"/>
+        <con:entry key="buystring" value="Item 1"/>
       </con:parameters>
       <con:environmentSpec>
         <con:entry environmentId="f27a7295-1f08-4642-a3be-7ae9878517f0">

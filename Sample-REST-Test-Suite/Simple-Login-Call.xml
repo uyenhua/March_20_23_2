@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testCase id="c3fbf613-f789-4fe0-a4e5-1757eba3ccc2" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Simple Login Call" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+<con:testCase discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" id="c3fbf613-f789-4fe0-a4e5-1757eba3ccc2" keepSession="false" name="Simple Login Call" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
   <con:description>Simple test can be used to show how easy it is to call a simple REST Service. You can have one or multiple REST endpoints that are not related to each other. This is commonly used when running integration tests.
 
 Steps:
@@ -13,7 +13,7 @@ NOTE: If you would like to run the Login step without as a standalone step pleas
     <con:setting id="c3fbf613-f789-4fe0-a4e5-1757eba3ccc2fileName">Simple-Login-Call</con:setting>
   </con:settings>
   <con:savedRecentRuns>1</con:savedRecentRuns>
-  <con:testStep type="VirtRunnerTestStep" name="Start Service" id="49e7dd6f-1ad0-4104-8d0a-2bc166ee29e4">
+  <con:testStep id="49e7dd6f-1ad0-4104-8d0a-2bc166ee29e4" name="Start Service" type="VirtRunnerTestStep">
     <con:settings/>
     <con:config>
       <url>localhost</url>
@@ -21,17 +21,17 @@ NOTE: If you would like to run the Login step without as a standalone step pleas
       <action>run</action>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="Login" id="8c4c6e50-238e-4476-80dc-15d7b89fff4f">
+  <con:testStep id="8c4c6e50-238e-4476-80dc-15d7b89fff4f" name="Login" type="restrequest">
     <con:settings/>
-    <con:config service="Ecommerce" resourcePath="/login/" methodName="Login" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:restRequest name="Login" id="af9f46ad-d5ad-4c3c-bcde-e2f266c3dc2c" mediaType="application/json" postQueryString="false">
+    <con:config xsi:type="con:RestRequestStep" methodName="Login" resourcePath="/login/" service="Ecommerce" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest id="af9f46ad-d5ad-4c3c-bcde-e2f266c3dc2c" mediaType="application/json" name="Login" postQueryString="false">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Accept" value="application/json" xmlns="http://eviware.com/soapui/config"/></con:setting>
         </con:settings>
         <con:endpoint>http://localhost:8084</con:endpoint>
         <con:request>{"sample" : "1 "}</con:request>
         <con:originalUri>http://localhost/login</con:originalUri>
-        <con:assertion type="Valid HTTP Status Codes" id="54943923-c5d6-4a3d-a176-a7a20d56b664" name="Valid HTTP Status Codes">
+        <con:assertion id="54943923-c5d6-4a3d-a176-a7a20d56b664" name="Valid HTTP Status Codes" type="Valid HTTP Status Codes">
           <con:settings/>
           <con:configuration>
             <codes>200</codes>
@@ -83,7 +83,7 @@ NOTE: If you would like to run the Login step without as a standalone step pleas
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="VirtRunnerTestStep" name="Stop Service" id="e7ca5e17-6eda-4ec7-9628-3cc48017145d">
+  <con:testStep id="e7ca5e17-6eda-4ec7-9628-3cc48017145d" name="Stop Service" type="VirtRunnerTestStep">
     <con:settings/>
     <con:config>
       <url>localhost</url>
