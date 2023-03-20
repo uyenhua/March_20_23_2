@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testCase id="144505c6-b03d-43d1-8f24-71eb41db11e3" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Integration Test" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+<con:testCase discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" id="144505c6-b03d-43d1-8f24-71eb41db11e3" keepSession="false" name="Integration Test" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
   <con:description>Integration tests are supposed to show how APIs work in a real world scenarios, integrating APIs together as a user would use an application in a workflow. In the following example we Login, Search for an Item, Buy the Item and then logout. We have strung these steps together
 with some of the tools easy to use feature (GET DATA: See Documentation) which allows you to easily pass values from a response to the next request.
 
@@ -15,7 +15,7 @@ NOTE: If you would like to run the Login step without as a standalone step pleas
     <con:setting id="144505c6-b03d-43d1-8f24-71eb41db11e3fileName">Integration-Test</con:setting>
   </con:settings>
   <con:savedRecentRuns>1</con:savedRecentRuns>
-  <con:testStep type="VirtRunnerTestStep" name="Start Service" id="48307fa4-2bf6-4550-8266-238bd4e03e1c">
+  <con:testStep id="48307fa4-2bf6-4550-8266-238bd4e03e1c" name="Start Service" type="VirtRunnerTestStep">
     <con:settings/>
     <con:config>
       <url>localhost</url>
@@ -23,17 +23,17 @@ NOTE: If you would like to run the Login step without as a standalone step pleas
       <action>run</action>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="Login" id="d669030a-5e8c-4cf7-badd-9e8ae282be4b">
+  <con:testStep id="d669030a-5e8c-4cf7-badd-9e8ae282be4b" name="Login" type="restrequest">
     <con:settings/>
-    <con:config service="Ecommerce" resourcePath="/login/" methodName="Login" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:restRequest name="Login" id="af9f46ad-d5ad-4c3c-bcde-e2f266c3dc2c" mediaType="application/json" postQueryString="false">
+    <con:config xsi:type="con:RestRequestStep" methodName="Login" resourcePath="/login/" service="Ecommerce" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest id="af9f46ad-d5ad-4c3c-bcde-e2f266c3dc2c" mediaType="application/json" name="Login" postQueryString="false">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Accept" value="application/json" xmlns="http://eviware.com/soapui/config"/></con:setting>
         </con:settings>
         <con:endpoint>http://localhost:8084</con:endpoint>
         <con:request>{"sample" : "1 "}</con:request>
         <con:originalUri>http://localhost/login</con:originalUri>
-        <con:assertion type="JsonPath Existence Match" id="3e937dfa-57ab-441d-9527-84c33802b690" name="Check for existence of [sessionid]">
+        <con:assertion id="3e937dfa-57ab-441d-9527-84c33802b690" name="Check for existence of [sessionid]" type="JsonPath Existence Match">
           <con:configuration>
             <path>$['sessionid']</path>
             <content>true</content>
@@ -88,17 +88,17 @@ NOTE: If you would like to run the Login step without as a standalone step pleas
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="Search_Item" id="022d6c41-8d52-4cab-9f55-eb49727b9d52">
+  <con:testStep id="022d6c41-8d52-4cab-9f55-eb49727b9d52" name="Search_Item" type="restrequest">
     <con:settings/>
-    <con:config service="Ecommerce" resourcePath="/search" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:restRequest name="Search_Item" id="21ae0292-5321-42ce-b85e-257fe3d8c656" mediaType="application/json">
+    <con:config xsi:type="con:RestRequestStep" methodName="Method 1" resourcePath="/search" service="Ecommerce" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest id="21ae0292-5321-42ce-b85e-257fe3d8c656" mediaType="application/json" name="Search_Item">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:endpoint>http://localhost:8084</con:endpoint>
         <con:request/>
         <con:originalUri>http://localhost/search</con:originalUri>
-        <con:assertion type="Valid HTTP Status Codes" id="36d1d814-2f5d-496a-a713-f00123a641fb" name="Valid HTTP Status Codes">
+        <con:assertion id="36d1d814-2f5d-496a-a713-f00123a641fb" name="Valid HTTP Status Codes" type="Valid HTTP Status Codes">
           <con:settings/>
           <con:configuration>
             <codes>200</codes>
@@ -149,17 +149,17 @@ NOTE: If you would like to run the Login step without as a standalone step pleas
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="Buy_Item" id="7406a0eb-e0bd-43d6-b123-be75ffdc0869">
+  <con:testStep id="7406a0eb-e0bd-43d6-b123-be75ffdc0869" name="Buy_Item" type="restrequest">
     <con:settings/>
-    <con:config service="Ecommerce" resourcePath="/buy" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:restRequest name="Buy_Item" id="b797c37e-2328-43f9-b0d6-f1d993c8419f" mediaType="application/json" postQueryString="false">
+    <con:config xsi:type="con:RestRequestStep" methodName="Method 1" resourcePath="/buy" service="Ecommerce" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest id="b797c37e-2328-43f9-b0d6-f1d993c8419f" mediaType="application/json" name="Buy_Item" postQueryString="false">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:endpoint>http://localhost:8084</con:endpoint>
         <con:request/>
         <con:originalUri>http://localhost/buy</con:originalUri>
-        <con:assertion type="JsonPath Match" id="309b6c3a-d6bc-4c5b-9c6f-e93fc4a16b2f" name="Match content of [id]">
+        <con:assertion id="309b6c3a-d6bc-4c5b-9c6f-e93fc4a16b2f" name="Match content of [id]" type="JsonPath Match">
           <con:configuration>
             <path>$['purchasestatus']['id']</path>
             <content>${Search_Item#Response#$['result']['item']['id']}</content>
@@ -210,17 +210,17 @@ NOTE: If you would like to run the Login step without as a standalone step pleas
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="Logout" id="3d09394d-f9db-48d3-aa7c-fa0869a0f163">
+  <con:testStep id="3d09394d-f9db-48d3-aa7c-fa0869a0f163" name="Logout" type="restrequest">
     <con:settings/>
-    <con:config service="Ecommerce" resourcePath="/logout" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:restRequest name="Logout" id="05080aa5-8817-44ff-ad88-cf8aec040aef" mediaType="application/json">
+    <con:config xsi:type="con:RestRequestStep" methodName="Method 1" resourcePath="/logout" service="Ecommerce" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest id="05080aa5-8817-44ff-ad88-cf8aec040aef" mediaType="application/json" name="Logout">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Accept" value="application/json" xmlns="http://eviware.com/soapui/config"/></con:setting>
         </con:settings>
         <con:endpoint>http://localhost:8084</con:endpoint>
         <con:request/>
         <con:originalUri>http://localhost/logout</con:originalUri>
-        <con:assertion type="JsonPath Match" id="a983a8c8-f1df-408e-be55-cc5d344ec31e" name="Match content of [Successfully logged out session]">
+        <con:assertion id="a983a8c8-f1df-408e-be55-cc5d344ec31e" name="Match content of [Successfully logged out session]" type="JsonPath Match">
           <con:configuration>
             <path>$['Successfully logged out session']</path>
             <content>"OK"</content>
@@ -235,7 +235,7 @@ NOTE: If you would like to run the Login step without as a standalone step pleas
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
-          <entry key="sessionid" value="${Login#Response#$['sessionid']}" xmlns="http://eviware.com/soapui/config"/>
+          <con:entry key="sessionid" value="${Login#Response#$['sessionid']}"/>
         </con:parameters>
         <con:parameterOrder>
           <con:entry>sessionid</con:entry>
@@ -272,7 +272,7 @@ NOTE: If you would like to run the Login step without as a standalone step pleas
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="VirtRunnerTestStep" name="Stop Service" id="f1f7afe2-4ce3-4c98-8560-099b92921644">
+  <con:testStep id="f1f7afe2-4ce3-4c98-8560-099b92921644" name="Stop Service" type="VirtRunnerTestStep">
     <con:settings/>
     <con:config>
       <url>localhost</url>
